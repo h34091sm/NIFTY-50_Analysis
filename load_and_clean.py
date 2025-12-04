@@ -12,7 +12,7 @@ first_file = csv_files[0]
 columns = list(pd.read_csv(first_file).columns)
 columns.remove('Series') # Remove Series column, because all stocks are of Series type EQ (Equity)
 
-# Combie the rows for each stock file, and gather them all into one big csv
+# Combine the rows for each stock file, and gather them all into one big csv
 for csv in csv_files:
     combined_df.append(pd.read_csv(csv, usecols=columns))
 

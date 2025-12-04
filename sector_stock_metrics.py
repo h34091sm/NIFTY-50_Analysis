@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("SECTOR_AVG_ROR.csv")
+df = pd.read_csv("sector_performance_tables/SECTOR_AVG_ROR.csv")
 
 # Monthly Volatility
 df["Stock_Date"] = pd.to_datetime(df["Stock_Date"])

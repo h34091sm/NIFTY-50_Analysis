@@ -1,6 +1,9 @@
-
 USE nifty_50;
-CREATE TABLE all_stocks_and_dates (
+
+DROP TABLE IF EXISTS all_stocks_and_dates_cleaned;
+DROP TABLE IF EXISTS stock_metadata;
+
+CREATE TABLE all_stocks_and_dates_cleaned (
  Stock_Date datetime,
  Symbol text,
  Prev_Close double,
@@ -11,15 +14,16 @@ CREATE TABLE all_stocks_and_dates (
  Close_Price double,
  VWAP double,
  Volume int,
- Turnover int,
+ Turnover bigint,
  Trades int,
  Deliverable_Vol int,
  Deliverable_Percent double,
- RateOfReturn double
+ Rate_Of_Return double
 );
 
+# Extract cleaned stocks and dates data
 SET GLOBAL LOCAL_INFILE=ON;
-LOAD DATA LOCAL INFILE 'C:/Users/mooda/OneDrive/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/ALL_STOCKS_AND_DATES.csv' INTO TABLE all_stocks_and_dates
+LOAD DATA LOCAL INFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/ALL_STOCKS_AND_DATES_cleaned.csv' INTO TABLE all_stocks_and_dates_cleaned
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
@@ -33,8 +37,10 @@ CREATE TABLE stock_metadata (
  ISIN_Code text
 );
 
-LOAD DATA LOCAL INFILE 'C:/Users/mooda/OneDrive/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/NIFTY-50_Data/stock_metadata.csv' INTO TABLE stock_metadata
+# Extract stock metadata to get sector based information 
+LOAD DATA LOCAL INFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/NIFTY-50_Data/stock_metadata.csv' INTO TABLE stock_metadata
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
+LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
+
