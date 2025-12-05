@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS all_stocks_and_dates (
 
 # Import uncleaned stocks and dates data
 SET GLOBAL LOCAL_INFILE=ON;
-LOAD DATA LOCAL INFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/ALL_STOCKS_AND_DATES.csv' INTO TABLE all_stocks_and_dates
+LOAD DATA LOCAL INFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/individual_stock_performance_tables/ALL_STOCKS_AND_DATES.csv' INTO TABLE all_stocks_and_dates
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
@@ -39,7 +39,7 @@ UNION ALL
 SELECT	Stock_Date, Symbol, Prev_Close, Open_Price, High, Low, Last_Price, Close_Price, VWAP, Volume, Turnover, Trades, Deliverable_Vol, Deliverable_Percent
 FROM Extract_Stock_Dates
 WHERE 	RN=1
-INTO OUTFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/ALL_STOCKS_AND_DATES_cleaned.csv'
+INTO OUTFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/individual_stock_performance_tables/ALL_STOCKS_AND_DATES_cleaned.csv'
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n';
 

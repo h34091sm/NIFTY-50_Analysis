@@ -28,5 +28,12 @@ WITH Industry_Performance_Change AS
 	SELECT	Industry, DATEDIFF(Last_Date, First_Date) as Total_Days, Last_Avg_Close - First_Avg_Close as Change_In_Avg_Price, Last_Total_Turnover - First_Total_Turnover as Change_In_Turnover
 	FROM	Industry_First_Last_Entries
 )
-SELECT	Industry, Total_Days, Change_In_Avg_Price / Total_Days AS Rate_Of_Price_Change, Change_In_Turnover / Total_Days AS Rate_Of_Turnover_Change
-FROM	Industry_Performance_Change; 
+(
+	SELECT 'Industry', 'Num Days on Stock Market', 'Rate of Avg Stock Price Change', 'Rate of Total Turnover Change' 
+	UNION ALL
+	SELECT	Industry, Total_Days, Change_In_Avg_Price / Total_Days AS Rate_Of_Price_Change, Change_In_Turnover / Total_Days AS Rate_Of_Turnover_Change
+	FROM	Industry_Performance_Change
+)
+INTO OUTFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/sector_performance_tables/SECTOR_GROWTH.csv'
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'; ; 

@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Gather stock file for each company, ignoring the stock_metadata file
-os.chdir("NIFTY-50_Data")
+os.chdir("../NIFTY-50_Data")
 csv_files = os.listdir()
 csv_files.remove("stock_metadata.csv")
 combined_df = []
@@ -17,4 +17,4 @@ for csv in csv_files:
     combined_df.append(pd.read_csv(csv, usecols=columns))
 
 final_combined_df = pd.concat(combined_df, axis=0, ignore_index = True)
-final_combined_df.to_csv("../ALL_STOCKS_AND_DATES.csv", index=False, header=True)
+final_combined_df.to_csv("../individual_stock_performance_tables/ALL_STOCKS_AND_DATES.csv", index=False, header=True)
