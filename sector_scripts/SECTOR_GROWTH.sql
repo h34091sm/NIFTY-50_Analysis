@@ -1,3 +1,5 @@
+use nifty_50;
+
 CREATE OR REPLACE VIEW Industry_Value_Turnover AS
 SELECT		sm.Industry, asd.Stock_Date, avg(asd.Close_Price) AS Avg_Close_Price, sum(asd.Turnover) as Total_Turnover
 FROM		all_stocks_and_dates_cleaned asd INNER JOIN stock_metadata sm on asd.Symbol = sm.Symbol
