@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS nifty_50;
 USE nifty_50;
 
 CREATE TABLE IF NOT EXISTS all_stocks_and_dates (
