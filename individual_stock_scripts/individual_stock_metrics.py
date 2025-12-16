@@ -10,11 +10,11 @@ df.to_csv("../individual_stock_performance_tables/ALL_STOCKS_AND_DATES_cleaned.c
 # Monthly Volatility
 df["Stock_Date"] = pd.to_datetime(df["Stock_Date"])
 df["Month"] = df["Stock_Date"].dt.to_period("M")
-monthly_vol = df.groupby(["Symbol", "Month"])["Rate_Of_Return"].std().reset_index(name="Monthly Volatility")
+monthly_vol = df.groupby(["Company", "Month"])["Rate_Of_Return"].std().reset_index(name="Monthly Volatility")
 
 # Yearly Volatility
 df["Year"] = df["Stock_Date"].dt.to_period("Y")
-yearly_vol = df.groupby(["Symbol", "Year"])["Rate_Of_Return"].std().reset_index(name="Yearly Volatility")
+yearly_vol = df.groupby(["Company", "Year"])["Rate_Of_Return"].std().reset_index(name="Yearly Volatility")
 
 # Create new CSV files for Volatility
 monthly_vol.to_csv("../individual_stock_performance_tables/STOCK_MONTHLY_VOLATILITY.csv", index=False)

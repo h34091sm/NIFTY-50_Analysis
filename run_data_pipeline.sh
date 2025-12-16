@@ -10,11 +10,9 @@ python3 individual_stock_metrics.py
 cd ..
 
 cd data_clean_and_prep_scripts
-"C:/Program Files/MySQL/MySQL Server 9.4/bin/mysql.exe" --login-path=localdb --local-infile=1 < SETUP_DB.sql
 cd ..
 
 cd sector_scripts
-"C:/Program Files/MySQL/MySQL Server 9.4/bin/mysql.exe" --login-path=localdb --local-infile=1 < SECTOR_GROUPING.sql
 python3 sector_stock_metrics.py
 cd ..
 
