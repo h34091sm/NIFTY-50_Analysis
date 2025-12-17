@@ -58,4 +58,4 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'; 
 
 DROP TABLE IF EXISTS all_stocks_and_dates_cleaned; 
-DROP TABLE IF EXISTS stock_first_last_entries;
+DROP VIEW IF EXISTS stock_first_last_entries;
