@@ -23,3 +23,7 @@ cd ..
 cd sector_scripts
 "C:/Program Files/MySQL/MySQL Server 9.4/bin/mysql.exe" --login-path=localdb --local-infile=1 < SECTOR_GROWTH.sql
 cd ..
+
+cd inf_bug_fix
+"C:/Program Files/MySQL/MySQL Server 9.4/bin/mysql.exe" --login-path=localdb --local-infile=1 < Remove_Inf_Values.sql
+cd .. 
