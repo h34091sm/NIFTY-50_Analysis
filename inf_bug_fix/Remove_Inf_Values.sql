@@ -26,6 +26,19 @@ UPDATE	all_stocks_and_dates_cleaned
 SET 	Rate_Of_Return = 0
 WHERE 	Company LIKE 'Bharti%' AND Stock_Date = '2002-02-18';
 
+
+SELECT 
+	'Stock_Date' AS Stock_Date,
+	'Company' AS Company,
+	'Industry' AS Industry,
+	'Prev_Close' AS Prev_Close,
+	'Close_Price' AS Close_Price,
+	'Volume' AS Volume,
+	'Turnover' AS Turnover,
+	'Deliverable_Percent' AS Deliverable_Percent,
+    'Sort_Key' AS Sort_Key,
+    'Rate_Of_Return' AS Rate_Of_Return
+UNION ALL 
 SELECT * FROM all_stocks_and_dates_cleaned
 INTO OUTFILE 'C:/CodingProjects/Data_Analyst_Portfolio_Project/NIFTY-50_Analysis/individual_stock_performance_tables/ALL_STOCKS_AND_DATES_final.csv'
 FIELDS TERMINATED BY ','
